@@ -1,0 +1,25 @@
+<mat-card>
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="person.name" name="name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <input matInput [(ngModel)]="person.address" name="address" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div *ngIf="savedPerson && !errorMessage" style="margin-top: 20px;">
+    <h3>Saved Person:</h3>
+    <p><strong>Name:</strong> {{ savedPerson.name }}</p>
+    <p><strong>Address:</strong> {{ savedPerson.address }}</p>
+  </div>
+</mat-card>
